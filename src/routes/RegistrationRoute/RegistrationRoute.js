@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import RegistrationForm from '../../components/RegistrationForm/RegistrationForm'
 
+
 class RegistrationRoute extends Component {
   static defaultProps = {
     history: {
@@ -15,9 +16,9 @@ class RegistrationRoute extends Component {
 
   render() {
     return (
-      <section>
+      <section className="registration__container">
         <p>
-          Practice learning a language with the spaced reptition revision technique.
+          Practice learning a language with the spaced repetition revision technique.
         </p>
         <h2>Sign up</h2>
         <RegistrationForm

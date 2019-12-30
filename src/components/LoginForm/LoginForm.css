@@ -1,0 +1,40 @@
+.login__container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 40px;
+}
+
+.login__input {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 10px 0 10px 0;
+}
+
+.login__input label {
+    margin-right: 5px;
+}
+
+.login__input input {
+    margin-left: 5px;
+}
+
+.LoginForm {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.LoginForm button {
+    margin-top: 20px;
+    font-size: 1em;
+    background-color: #46696B;
+    color: whitesmoke;
+    padding: 7px;
+    border: none;
+    border-radius: 7px;
+}
+

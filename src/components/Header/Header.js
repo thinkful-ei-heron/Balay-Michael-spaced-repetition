@@ -30,7 +30,7 @@ class Header extends Component {
 
   renderLoginLink() {
     return (
-      <nav>
+      <nav className="nav__login">
         <Link to='/login'>Login</Link>
         {' '}
         <Link to='/register'>Sign up</Link>
@@ -41,7 +41,7 @@ class Header extends Component {
   render() {
     return (
       <header>
-        <h1>
+        <h1 id="header__title">
           <Link to='/'>
             Spaced repetition
           </Link>
