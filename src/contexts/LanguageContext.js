@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
+import LanguageApiService from '../services/language-api-service';
 
 const LanguageContext = React.createContext({
   language: {},
   words: [],
   setLanguage: () => {},
-  setWords: () => {}
+  setWords: () => {},
+  updateLanguage: () => {}
 });
 
 export default LanguageContext;
@@ -22,6 +24,13 @@ export class LanguageProvider extends Component {
 
   setWords = words => {
     this.setState({ words });
+  };
+
+  updateLanguage = () => {
+    LanguageApiService.getLanguage().then(data => {
+      this.setLanguage(data.language);
+      this.setWords(data.words);
+    });
   };
 
   render() {
