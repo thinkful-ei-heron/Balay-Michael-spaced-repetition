@@ -33,6 +33,7 @@
   "devDependencies": {
     "cypress": "^3.8.1",
     "jsonwebtoken": "^8.5.0",
-    "unfetch": "^4.1.0"
+    "unfetch": "^4.1.0",
+    "xvfb": "^0.3.0"
   }
 }
