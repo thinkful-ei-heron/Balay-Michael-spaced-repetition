@@ -15,3 +15,5 @@ const LanguageApiService = {
     return json;
   }
 };
+
+export default LanguageApiService;

@@ -11,6 +11,10 @@ class Dashboard extends Component {
         wordlistExpand: false
     }
 
+    componentDidMount() {
+        this.context.updateLanguage()
+    }
+
     renderWordlist() {
         return (
             <ul className="wordlist">

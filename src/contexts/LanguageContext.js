@@ -38,7 +38,8 @@ export class LanguageProvider extends Component {
       language: this.state.language,
       words: this.state.words,
       setLanguage: this.setLanguage,
-      setWords: this.setWords
+      setWords: this.setWords,
+      updateLanguage: this.updateLanguage
     };
     return (
       <LanguageContext.Provider value={value}>
