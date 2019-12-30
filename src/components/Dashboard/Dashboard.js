@@ -22,8 +22,10 @@ class Dashboard extends Component {
                     return (
                         <li key={word.id}>
                             <span>{word.original}</span>
-                            <span>Correct guesses: {word.correct_count}</span>
-                            <span>Incorrect guesses: {word.incorrect_count}</span>
+                            <div>
+                                <span>Correct guesses: {word.correct_count}</span>
+                                <span>Incorrect guesses: {word.incorrect_count}</span>
+                            </div>
                         </li>
                     )
                 })}

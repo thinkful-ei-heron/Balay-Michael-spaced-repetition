@@ -40,6 +40,7 @@ header {
     justify-content: flex-end;
     align-items: center;
     margin-top: 20px;
+    padding-right: 15px;
     color: #2B3440;
 }
 
@@ -47,6 +48,7 @@ header {
     text-decoration: none;
     color: #2B3440;
     padding: 3px;
+    margin-left: 15px;
 }
 
 .nav__logout a:hover {
