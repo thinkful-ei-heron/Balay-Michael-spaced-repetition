@@ -1,0 +1,55 @@
+#user_greeting {
+    text-align: center;
+}
+
+.dashboard__container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 40px;
+}
+
+.language {
+    font-style: italic;
+}
+
+.wordlist__label {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 12%;
+}
+
+.wordlist__label span {
+    color: #84DEBA;
+    font-size: 1.7em;
+}
+
+.wordlist {
+    list-style-type: none;
+    width: 80%;
+}
+
+.wordlist li {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    border: 2px solid rgb(174, 224, 204);
+    padding: 5px;
+    margin-bottom: 10px;
+}
+
+.dashboard__container a {
+    margin-top: 20px;
+}
+
+.dashboard__container a button {
+    font-size: 1em;
+    background-color: #46696B;
+    color: whitesmoke;
+    padding: 7px;
+    border: none;
+    border-radius: 7px;
+}

@@ -33,3 +33,24 @@ header {
     border-radius: 7px;
     color: whitesmoke;
 }
+
+.nav__logout {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    margin-top: 20px;
+    color: #2B3440;
+}
+
+.nav__logout a {
+    text-decoration: none;
+    color: #2B3440;
+    padding: 3px;
+}
+
+.nav__logout a:hover {
+    background-color: #46696B;
+    border-radius: 7px;
+    color: whitesmoke;
+}
