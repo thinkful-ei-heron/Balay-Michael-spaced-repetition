@@ -10,6 +10,7 @@ const LanguageApiService = {
     });
     if (res.status === 401) {
       //unauthorized: token is bad
+      throw new Error('bad auth');
     }
     const json = await res.json();
     return json;

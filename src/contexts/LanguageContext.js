@@ -26,8 +26,8 @@ export class LanguageProvider extends Component {
     this.setState({ words });
   };
 
-  updateLanguage = () => {
-    LanguageApiService.getLanguage().then(data => {
+  updateLanguage = logout => {
+    return LanguageApiService.getLanguage(logout).then(data => {
       this.setLanguage(data.language);
       this.setWords(data.words);
     });
