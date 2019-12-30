@@ -1,9 +1,12 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom'
 import Button from '../Button/Button'
+import LanguageContext from '../../contexts/LanguageContext';
 import './Dashboard.css';
 
 class Dashboard extends Component {
+    static contextType = LanguageContext
+
     state = {
         wordlistExpand: false
     }
@@ -11,16 +14,15 @@ class Dashboard extends Component {
     renderWordlist() {
         return (
             <ul className="wordlist">
-                <li>
-                    <span>Word</span>
-                    <span>Correct guesses: 3</span>
-                    <span>Incorrect guesses: 4</span>
-                </li>
-                <li>
-                    <span>Word</span>
-                    <span>Correct guesses: 3</span>
-                    <span>Incorrect guesses: 4</span>
-                </li>
+                {this.context.words.map(word => {
+                    return (
+                        <li key={word.id}>
+                            <span>{word.original}</span>
+                            <span>Correct guesses: {word.correct_count}</span>
+                            <span>Incorrect guesses: {word.incorrect_count}</span>
+                        </li>
+                    )
+                })}
               </ul>
         )
     }
