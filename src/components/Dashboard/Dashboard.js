@@ -21,7 +21,7 @@ class Dashboard extends Component {
                 {this.context.words.map(word => {
                     return (
                         <li key={word.id}>
-                            <span>{word.original}</span>
+                            <h4>{word.original}</h4>
                             <div>
                                 <span>Correct guesses: {word.correct_count}</span>
                                 <span>Incorrect guesses: {word.incorrect_count}</span>
@@ -41,13 +41,13 @@ class Dashboard extends Component {
     render() {
         return (
             <>
-              <h3 className="language">Language: Turkish</h3>
+              <h2 id="user__greeting">Language: {this.context.language.name}</h2>
+              <h2 id="progress">Total correct answers: {this.context.language.total_score}</h2>
               <div className="wordlist__label">
-                <h4>Words to practice</h4>
-                <span onClick={this.toggleWordlist}>{!this.state.wordlistExpand ? '+' : '-'}</span>
+                <h3>Words to practice</h3>
               </div>
-              {this.state.wordlistExpand ? this.renderWordlist() : ''}
-              <Link to='/learn_word'><Button>Start Practicing!</Button></Link>
+              {!this.state.wordlistExpand ? this.renderWordlist() : ''}
+              <Link to='/learn'><Button>Start Practicing</Button></Link>
             </>
         )
     }

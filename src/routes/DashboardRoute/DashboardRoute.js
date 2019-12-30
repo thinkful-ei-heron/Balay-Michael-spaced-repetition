@@ -8,7 +8,6 @@ class DashboardRoute extends Component {
   render() {
     return (
       <section className="dashboard__container">
-          <h2 id="user__greeting">Hello, {this.context.user.name}!</h2>
           <Dashboard />
       </section>
     );
