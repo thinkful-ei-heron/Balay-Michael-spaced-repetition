@@ -1,0 +1,48 @@
+.learning__container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#next_word {
+  text-align: center;
+}
+
+.scores {
+  border-bottom: 2px solid rgb(174, 224, 204);
+  margin: 10px 0 30px 0;
+}
+
+.guess__word {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1.5em;
+}
+
+.guess__word input {
+  font-size: 0.8em;
+}
+
+.guess__word label {
+  margin-right: 10px;
+}
+
+.guess__form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.guess__form button {
+  font-size: 1em;
+    background-color: #46696B;
+    color: whitesmoke;
+    padding: 7px;
+    border: none;
+    border-radius: 7px;
+    margin-top: 20px;
+}

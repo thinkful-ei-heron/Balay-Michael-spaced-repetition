@@ -13,6 +13,19 @@ const LanguageApiService = {
     }
     const json = await res.json();
     return json;
+  },
+
+  async getNextWord() {
+    const res = await fetch(`${config.API_ENDPOINT}/language/head`, {
+      headers: {
+        authorization: `Bearer ${TokenService.getAuthToken()}`
+      }
+    });
+    if (res.status === 401) {
+      //unauthorized: token is bad
+    }
+    const json = await res.json();
+    return json;
   }
 };
 
