@@ -1,0 +1,21 @@
+.feedback__container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center; 
+  align-items: center;
+}
+
+.feedback__scores {
+  border-bottom: 2px solid rgb(174, 224, 204);
+  margin: 10px 0 30px 0;
+}
+
+.feedback__container button {
+  font-size: 1em;
+  background-color: #46696B;
+  color: whitesmoke;
+  padding: 7px;
+  border: none;
+  border-radius: 7px;
+  margin-top: 20px;
+}

@@ -5,9 +5,13 @@ const LanguageContext = React.createContext({
   language: {},
   words: [],
   nextWord: {},
+  feedback: {},
   setLanguage: () => {},
   setWords: () => {},
-  updateLanguage: () => {}
+  updateLanguage: () => {},
+  getNextWord: () => {},
+  guessWord: () => {},
+  setFeedback: () => {}
 });
 
 export default LanguageContext;
@@ -15,7 +19,7 @@ export default LanguageContext;
 export class LanguageProvider extends Component {
   constructor(props) {
     super(props);
-    const state = { language: {}, words: [], nextWord: {} };
+    const state = { language: {}, words: [], nextWord: {}, feedback: {} };
     this.state = state;
   }
 
@@ -31,6 +35,10 @@ export class LanguageProvider extends Component {
     this.setState({ nextWord });
   }
 
+  setFeedback = feedback => {
+    this.setState({ feedback });
+  }
+
   updateLanguage = () => {
     LanguageApiService.getLanguage().then(data => {
       this.setLanguage(data.language);
@@ -42,6 +50,14 @@ export class LanguageProvider extends Component {
     LanguageApiService.getNextWord().then(data => {
       this.setNextWord(data)
     })
+  };
+
+  guessWord = (guess) => {
+    const result = LanguageApiService.guessWord(guess)
+      .then(data => {
+        this.setFeedback(data)
+      })
+      return result
   }
 
   render() {
@@ -49,10 +65,13 @@ export class LanguageProvider extends Component {
       language: this.state.language,
       words: this.state.words,
       nextWord: this.state.nextWord,
+      feedback: this.state.feedback,
       setLanguage: this.setLanguage,
       setWords: this.setWords,
       updateLanguage: this.updateLanguage,
-      getNextWord: this.getNextWord
+      getNextWord: this.getNextWord,
+      guessWord: this.guessWord,
+      setFeedback: this.setFeedback
     };
     return (
       <LanguageContext.Provider value={value}>

@@ -1,19 +1,42 @@
 import React, { Component } from 'react'
 import LanguageContext from '../../contexts/LanguageContext';
+import LanguageApiService from '../../services/language-api-service';
 import { Input, Required, Label } from '../Form/Form'
 import Button from '../Button/Button'
 import './Learning.css'
 
 class Learning extends Component {
+  static defaultProps = {
+    handleGuessSubmit: () => { }
+  }
+
+  state = { error: null }
+
   static contextType = LanguageContext;
 
   firstInput = React.createRef()
 
   componentDidMount() {
     this.context.getNextWord();
+    this.firstInput.current.focus();
+  }
+
+  handleSubmit = e => {
+    e.preventDefault();
+    const { guess } = e.target;
+    LanguageApiService.guessWord(guess.value)
+      .then(res => {
+        guess.value = ''
+        this.context.setFeedback(res)
+        this.props.handleGuessSubmit()
+      })
+      .catch(e => {
+        this.setState({ error: e })
+      })
   }
 
   render() {
+    const { error } = this.state
     return (
       <>
         <h2 id="next_word">Translate the word: <span>{this.context.nextWord.nextWord}</span></h2>
@@ -22,7 +45,10 @@ class Learning extends Component {
           <p>You have answered this word correctly {this.context.nextWord.wordCorrectCount} times.</p>
           <p>You have answered this word incorrectly {this.context.nextWord.wordIncorrectCount} times.</p>
         </div>
-        <form className="guess__form">
+        <div role='alert'>
+          {error && <p>{error}</p>}
+        </div>
+        <form className="guess__form" onSubmit={this.handleSubmit}>
           <div className="guess__word">
             <Label htmlFor='learn-guess-input'>
               What's the translation for this word? <Required />

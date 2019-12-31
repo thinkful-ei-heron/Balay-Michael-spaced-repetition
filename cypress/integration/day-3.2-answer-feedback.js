@@ -11,7 +11,7 @@
   - After submitting, I'm told the correct answer
   - My total score is updated
   - I'm told how many times I was correct or incorrect for the word
-  - I can see a button/link to try another word
+  - I can see a button/link to try another word 
 */
 describe(`User story: Answer feedback`, function() {
   beforeEach(() => {
