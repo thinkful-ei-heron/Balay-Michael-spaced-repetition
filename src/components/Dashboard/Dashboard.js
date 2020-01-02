@@ -8,15 +8,21 @@ class Dashboard extends Component {
   static contextType = LanguageContext;
 
   state = {
-    wordlistExpand: false
+    wordlistExpand: false,
+    error: null
   };
 
   componentDidMount() {
     console.log('mount');
-    this.context.updateLanguage().catch(() => {
-      this.props.logout();
-      this.props.history.push('/login');
-    });
+    this.context.updateLanguage().catch(e => {
+        const err = JSON.parse(e.message)
+        if (err.status === 401) {
+          this.props.logout();
+          this.props.history.push('/login')
+        } else {
+          this.setState({ error: err.error })
+        }
+      })
   }
 
     renderWordlist() {
@@ -43,8 +49,12 @@ class Dashboard extends Component {
         })
     }
     render() {
+        const { error } = this.state
         return (
             <>
+              <div className="alert">
+                {error && <p>{error}</p>}
+              </div>
               <h2 id="user__greeting">Language: {this.context.language.name}</h2>
               <h2 id="progress">Total correct answers: {this.context.language.total_score}</h2>
               <div className="wordlist__label">

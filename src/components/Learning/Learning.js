@@ -11,17 +11,24 @@ class Learning extends Component {
     handleGuessSubmit: () => {}
   }
 
-  state = { error: null }
+  state = {
+    error: null
+  }
 
   static contextType = LanguageContext;
 
   firstInput = React.createRef()
 
   componentDidMount() {
-    this.context.getNextWord().catch(() => {
-      this.props.logout();
-      this.props.history.push('/login')
-    });
+    this.context.getNextWord().catch(e => {
+      const err = JSON.parse(e.message)
+      if (err.status === 401) {
+        this.props.logout();
+        this.props.history.push('/login')
+      } else {
+        this.setState({ error: err.error })
+      }
+    })
     this.firstInput.current.focus();
   }
 
@@ -36,10 +43,12 @@ class Learning extends Component {
         this.props.handleGuessSubmit()
       })
       .catch(e => {
-        this.props.logout();
-        this.props.history.push('/login')
-        if (e) {
-          this.setState({ error: e })
+        const err = JSON.parse(e.message)
+        if (err.status === 401) {
+          this.props.logout();
+          this.props.history.push('/login')
+        } else {
+          this.setState({ error: err.error })
         }
       })
   }
@@ -55,7 +64,7 @@ class Learning extends Component {
           <p>You have answered this word incorrectly {this.context.nextWord.wordIncorrectCount} times.</p>
         </div>
         <div role='alert'>
-          {error && <p>{error.error}</p>}
+          {error && <p>{error}</p>}
         </div>
         <form className="guess__form" onSubmit={this.handleSubmit}>
           <div className="guess__word">

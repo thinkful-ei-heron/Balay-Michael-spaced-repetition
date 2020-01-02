@@ -8,9 +8,8 @@ const LanguageApiService = {
         authorization: `Bearer ${TokenService.getAuthToken()}`
       }
     });
-    if (res.status === 401) {
-      //unauthorized: token is bad
-      throw new Error('bad auth');
+    if (!res.ok) {
+      throw new Error(JSON.stringify({ status: res.status, error: res.statusText }))
     }
     const json = await res.json();
     return json;
@@ -22,9 +21,8 @@ const LanguageApiService = {
         authorization: `Bearer ${TokenService.getAuthToken()}`
       }
     });
-    if (res.status === 401) {
-      //unauthorized: token is bad
-      throw new Error('bad auth');
+    if (!res.ok) {
+      throw new Error(JSON.stringify({ status: res.status, error: res.statusText }))
     }
     const json = await res.json();
     return json;
@@ -43,11 +41,7 @@ const LanguageApiService = {
       body: JSON.stringify(guessObj)
     });
     if (!res.ok) {
-      if (res.status === 401) {
-        throw new Error('bad auth');
-      } else {
-        res.json().then(e => Promise.reject(e))
-      }
+      throw new Error(JSON.stringify({ status: res.status, error: res.statusText }))
     } 
     const json = await res.json();
     return json;
