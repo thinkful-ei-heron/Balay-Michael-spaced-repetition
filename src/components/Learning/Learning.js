@@ -26,8 +26,9 @@ class Learning extends Component {
     const { guess } = e.target;
     LanguageApiService.guessWord(guess.value)
       .then(res => {
+        this.context.setAnswer(guess.value)
         guess.value = ''
-        this.context.setFeedback(res)
+        this.context.setFeedback(res) 
         this.props.handleGuessSubmit()
       })
       .catch(e => {
