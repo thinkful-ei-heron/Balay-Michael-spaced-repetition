@@ -13,6 +13,8 @@ header {
 #header__title a {
     text-decoration: none;
     color: #2B3440;
+    padding: 10px;
+    margin-top: 5px;
 }
 
 .nav__login {
@@ -71,5 +73,4 @@ header {
     background-color: #46696B;
     border-radius: 7px;
     color: whitesmoke;
-    padding: 5px;
 }
