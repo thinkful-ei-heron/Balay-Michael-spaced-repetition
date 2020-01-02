@@ -46,14 +46,14 @@ export class LanguageProvider extends Component {
   }
 
   updateLanguage = () => {
-    LanguageApiService.getLanguage().then(data => {
+    return LanguageApiService.getLanguage().then(data => {
       this.setLanguage(data.language);
       this.setWords(data.words);
     });
   };
 
   getNextWord = () => {
-    LanguageApiService.getNextWord().then(data => {
+    return LanguageApiService.getNextWord().then(data => {
       this.setNextWord(data)
     })
   };

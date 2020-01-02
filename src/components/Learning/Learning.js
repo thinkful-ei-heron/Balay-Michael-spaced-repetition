@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import LanguageContext from '../../contexts/LanguageContext';
 import LanguageApiService from '../../services/language-api-service';
 import { Input, Required, Label } from '../Form/Form'
+import { withRouter } from 'react-router-dom'
 import Button from '../Button/Button'
 import './Learning.css'
 
@@ -17,7 +18,10 @@ class Learning extends Component {
   firstInput = React.createRef()
 
   componentDidMount() {
-    this.context.getNextWord();
+    this.context.getNextWord().catch(() => {
+      this.props.logout();
+      this.props.history.push('/login')
+    });
     this.firstInput.current.focus();
   }
 
@@ -32,7 +36,11 @@ class Learning extends Component {
         this.props.handleGuessSubmit()
       })
       .catch(e => {
-        this.setState({ error: e })
+        this.props.logout();
+        this.props.history.push('/login')
+        if (e) {
+          this.setState({ error: e })
+        }
       })
   }
 
@@ -47,7 +55,7 @@ class Learning extends Component {
           <p>You have answered this word incorrectly {this.context.nextWord.wordIncorrectCount} times.</p>
         </div>
         <div role='alert'>
-          {error && <p>{error}</p>}
+          {error && <p>{error.error}</p>}
         </div>
         <form className="guess__form" onSubmit={this.handleSubmit}>
           <div className="guess__word">
@@ -68,4 +76,4 @@ class Learning extends Component {
   }
 }
 
-export default Learning
+export default withRouter(Learning)

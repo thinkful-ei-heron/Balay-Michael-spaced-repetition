@@ -10,6 +10,7 @@ const LanguageApiService = {
     });
     if (res.status === 401) {
       //unauthorized: token is bad
+      throw new Error('bad auth');
     }
     const json = await res.json();
     return json;
@@ -23,6 +24,7 @@ const LanguageApiService = {
     });
     if (res.status === 401) {
       //unauthorized: token is bad
+      throw new Error('bad auth');
     }
     const json = await res.json();
     return json;
@@ -41,7 +43,11 @@ const LanguageApiService = {
       body: JSON.stringify(guessObj)
     });
     if (!res.ok) {
-      res.json().then(e => Promise.reject(e))
+      if (res.status === 401) {
+        throw new Error('bad auth');
+      } else {
+        res.json().then(e => Promise.reject(e))
+      }
     } 
     const json = await res.json();
     return json;

@@ -1,19 +1,23 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom'
-import Button from '../Button/Button'
+import { Link, withRouter } from 'react-router-dom';
+import Button from '../Button/Button';
 import LanguageContext from '../../contexts/LanguageContext';
 import './Dashboard.css';
 
 class Dashboard extends Component {
-    static contextType = LanguageContext
+  static contextType = LanguageContext;
 
-    state = {
-        wordlistExpand: false
-    }
+  state = {
+    wordlistExpand: false
+  };
 
-    componentDidMount() {
-        this.context.updateLanguage()
-    }
+  componentDidMount() {
+    console.log('mount');
+    this.context.updateLanguage().catch(() => {
+      this.props.logout();
+      this.props.history.push('/login');
+    });
+  }
 
     renderWordlist() {
         return (
@@ -53,4 +57,4 @@ class Dashboard extends Component {
     }
 }
 
-export default Dashboard;
+export default withRouter(Dashboard);
