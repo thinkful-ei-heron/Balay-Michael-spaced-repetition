@@ -37,3 +37,60 @@ a, button {
 button:hover {
   box-shadow: 0 0px 10px 0 rgb(197, 216, 208), 0 0px 10px 0 rgb(197, 216, 208);
 }
+
+@media screen and (max-width: 414px) {
+
+  #progress {
+    font-size: 1.2em;
+  }
+
+  .wordlist {
+    padding: 0;
+  }
+
+  .wordlist li h4 {
+    font-size: 0.8em;
+  }
+
+  .wordlist li div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .wordlist li span {
+    font-size: 0.8em;
+  }
+
+  .learning__container, .feedback__container {
+    width: 80%;
+    margin: 0 auto;
+    margin-bottom: 32px;
+  }
+
+  .guess__word {
+    width: 80%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .guess__word label {
+    text-align: center;
+    font-size: 0.8em;
+    margin-bottom: 10px;
+  }
+
+  .feedback__container h2 {
+    font-size: 1.3em;
+  }
+
+  .feedback__container h3 {
+    text-align: center;
+  }
+
+
+}

@@ -20,12 +20,14 @@ header {
     flex-direction: row;
     justify-content: space-evenly;
     margin-top: 20px;
+    border-top: 2px solid rgba(43, 52, 64, 0.623);
 }
 
 .nav__login a {
     text-decoration: none;
     color: #2B3440;
-    padding: 3px;
+    padding: 10px;
+    margin-top: 5px;
 }
 
 .nav__login a:hover {
@@ -42,17 +44,32 @@ header {
     margin-top: 20px;
     padding-right: 15px;
     color: #2B3440;
+    border-top: 2px solid rgba(43, 52, 64, 0.623);
 }
 
 .nav__logout a {
     text-decoration: none;
     color: #2B3440;
-    padding: 3px;
+    padding: 10px;
     margin-left: 15px;
+    margin-top: 5px;
+}
+
+.nav__logout span {
+    padding: 10px;
+    margin-left: 15px;
+    margin-top: 5px;
 }
 
 .nav__logout a:hover {
     background-color: #46696B;
     border-radius: 7px;
     color: whitesmoke;
+}
+
+#header__title a:hover {
+    background-color: #46696B;
+    border-radius: 7px;
+    color: whitesmoke;
+    padding: 5px;
 }

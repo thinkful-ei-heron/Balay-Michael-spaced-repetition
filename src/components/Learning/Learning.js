@@ -7,7 +7,7 @@ import './Learning.css'
 
 class Learning extends Component {
   static defaultProps = {
-    handleGuessSubmit: () => { }
+    handleGuessSubmit: () => {}
   }
 
   state = { error: null }
