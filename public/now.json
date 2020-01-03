@@ -1,0 +1,9 @@
+{
+  "version": 2,
+  "name": "spaced-repetition",
+  "alias": "Michael-Balay-Spaced-Repetition",
+  "routes": [
+      { "handle": "filesystem" },
+      { "src": "/.*", "dest": "/index.html" }
+  ]
+}
