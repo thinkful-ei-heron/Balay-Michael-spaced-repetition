@@ -10,6 +10,11 @@
             animation: fadein 1s;
 }
 
+.result {
+  width: 26em;
+  text-align: center;
+}
+
 .feedback__scores {
   border-bottom: 2px solid rgb(174, 224, 204);
   margin: 10px 0 30px 0;

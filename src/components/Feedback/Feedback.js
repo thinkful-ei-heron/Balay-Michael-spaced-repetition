@@ -12,7 +12,7 @@ export default class Feedback extends Component {
     return (
       <>
         <div className="feedback__container">
-          <h2>{this.context.feedback.isCorrect ? 'You were correct! :D' : 'Good try, but not quite right :('}</h2>
+          <h2 className="result">{this.context.feedback.isCorrect ? 'You were correct! :D' : 'Good try, but not quite right :('}</h2>
           <h3>The correct translation for {this.context.nextWord.nextWord} was {this.context.feedback.answer} and you chose {this.context.answer}!</h3>
           <div className="feedback__scores">
             <p className="totalScore">Your total score is: {this.context.feedback.totalScore}</p>
