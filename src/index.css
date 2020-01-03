@@ -94,5 +94,12 @@ button:hover {
     text-align: center;
   }
 
+  #next_word, .result {
+    width: 10em;
+  }
+
+  #header__title {
+    font-size: 1.8em;
+  }
 
 }
