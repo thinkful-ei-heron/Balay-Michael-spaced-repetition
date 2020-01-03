@@ -25,7 +25,7 @@ export default class App extends Component {
       <BrowserRouter>
         <div className="App">
           <Header />
-          <main>
+          <main aria-live="polite">
             {hasError && <p>There was an error! Oh no!</p>}
             <Switch>
               <PrivateRoute exact path={'/'} component={DashboardRoute} />
