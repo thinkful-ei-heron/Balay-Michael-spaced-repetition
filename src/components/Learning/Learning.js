@@ -12,8 +12,7 @@ class Learning extends Component {
   }
 
   state = {
-    error: null,
-    hasNewWord: false
+    error: null
   }
 
   static contextType = LanguageContext;
