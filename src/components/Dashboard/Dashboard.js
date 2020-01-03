@@ -8,7 +8,6 @@ class Dashboard extends Component {
   static contextType = LanguageContext;
 
   state = {
-    wordlistExpand: false,
     error: null
   };
 
@@ -43,11 +42,6 @@ class Dashboard extends Component {
         )
     }
 
-    toggleWordlist = () => {
-        this.setState({
-            wordlistExpand: !this.state.wordlistExpand
-        })
-    }
     render() {
         const { error } = this.state
         return (
@@ -60,7 +54,7 @@ class Dashboard extends Component {
               <div className="wordlist__label">
                 <h3>Words to practice</h3>
               </div>
-              {!this.state.wordlistExpand ? this.renderWordlist() : ''}
+              {this.renderWordlist()}
               <Link to='/learn'><Button>Start Practicing</Button></Link>
             </>
         )
