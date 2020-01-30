@@ -19,7 +19,11 @@ class LearningRoute extends Component {
   render() {
     return (
       <section className="learning__container">
-        <Learning handleGuessSubmit={this.handleGuessSubmit} logout={this.context.processLogout} />
+        <Learning 
+          handleGuessSubmit={this.handleGuessSubmit} 
+          logout={this.context.processLogout} 
+          history={this.props.history}
+        />
       </section>
     );
   }

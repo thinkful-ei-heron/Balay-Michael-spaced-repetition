@@ -8,7 +8,10 @@ class DashboardRoute extends Component {
   render() {
     return (
       <section className="dashboard__container">
-          <Dashboard logout={this.context.processLogout} />
+          <Dashboard 
+            logout={this.context.processLogout} 
+            history={this.props.history}
+          />
       </section>
     );
   }

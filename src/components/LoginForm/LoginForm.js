@@ -30,8 +30,8 @@ class LoginForm extends Component {
       .then(res => {
         username.value = ''
         password.value = ''
-        this.context.processLogin(res.authToken)
         this.props.toggleLoading()
+        this.context.processLogin(res.authToken)
         this.props.onLoginSuccess()
       })
       .catch(res => {

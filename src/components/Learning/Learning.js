@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import LanguageContext from '../../contexts/LanguageContext';
 import LanguageApiService from '../../services/language-api-service';
 import { Input, Required, Label } from '../Form/Form'
-import { withRouter } from 'react-router-dom'
 import Button from '../Button/Button'
 import './Learning.css'
 
@@ -86,4 +85,5 @@ class Learning extends Component {
   }
 }
 
-export default withRouter(Learning)
+
+export default Learning;
