@@ -1,68 +1,79 @@
 #user_greeting {
-    text-align: center;
+  text-align: center;
 }
 
 #progress {
-    background-color: #2B3440;
-    color: whitesmoke;
+  background-color: #2b3440;
+  color: whitesmoke;
+  font-size: 1.2em;
 }
 
 .dashboard__container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin-top: 40px;
-    margin-bottom: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 40px;
+  margin-bottom: 40px;
 }
 
 .language {
-    font-style: italic;
+  font-style: italic;
 }
 
 .wordlist__label {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .wordlist__label h3 {
-    border-bottom: 1px solid #84DEBA;
-    padding: 2px;
+  border-bottom: 1px solid #84deba;
+  padding: 2px;
 }
 
 .wordlist {
-    list-style-type: none;
-    width: 80%;
+  list-style-type: none;
+  width: 80%;
+  padding: 0;
 }
 
 .wordlist li {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    border: 2px solid rgb(174, 224, 204);
-    padding: 0 8px 0 8px;
-    margin-bottom: 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  border: 2px solid rgb(174, 224, 204);
+  padding: 0 8px 0 8px;
+  margin-bottom: 10px;
 }
 
 .wordlist li div {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+}
+
+.wordlist li h4 {
+  font-size: 0.8em;
+}
+
+.wordlist li span {
+  font-size: 0.8em;
 }
 
 .dashboard__container a {
-    margin-top: 20px;
+  margin-top: 20px;
 }
 
 .dashboard__container a button {
-    font-size: 1em;
-    background-color: #46696B;
-    color: whitesmoke;
-    padding: 7px;
-    border: none;
-    border-radius: 7px;
+  font-size: 1em;
+  background-color: #46696b;
+  color: whitesmoke;
+  padding: 7px;
+  border: none;
+  border-radius: 7px;
 }
