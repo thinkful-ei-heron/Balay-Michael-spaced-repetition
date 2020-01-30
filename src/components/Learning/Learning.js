@@ -35,9 +35,10 @@ class Learning extends Component {
   handleSubmit = e => {
     e.preventDefault();
     const { guess } = e.target;
-    LanguageApiService.guessWord(guess.value)
+    let userGuess = guess.value.toLowerCase()
+    LanguageApiService.guessWord(userGuess)
       .then(res => {
-        this.context.setAnswer(guess.value)
+        this.context.setAnswer(userGuess)
         guess.value = ''
         this.context.setFeedback(res) 
         this.props.handleGuessSubmit()

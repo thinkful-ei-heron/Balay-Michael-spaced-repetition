@@ -48,7 +48,6 @@ class Dashboard extends Component {
               <div className="alert">
                 {error && <p>{error}</p>}
               </div>
-              <h2 id="user__greeting">Language: {this.context.language.name}</h2>
               <h2 id="progress">Total correct answers: {this.context.language.total_score}</h2>
               <div className="wordlist__label">
                 <h3>Words to practice</h3>
