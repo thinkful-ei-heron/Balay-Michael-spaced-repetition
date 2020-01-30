@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import LoginForm from '../../components/LoginForm/LoginForm'
+import Loading from '../../components/Loading/Loading';
 
 
 class LoginRoute extends Component {
@@ -10,6 +11,16 @@ class LoginRoute extends Component {
     },
   }
 
+  state = {
+    loading: false
+  }
+
+  toggleLoading = () => {
+    this.setState({
+      loading: !this.state.toggleLoading
+    })
+  }
+
   handleLoginSuccess = () => {
     const { location, history } = this.props
     const destination = (location.state || {}).from || '/'
@@ -17,14 +28,19 @@ class LoginRoute extends Component {
   }
 
   render() {
-    return (
-      <section className="login__container">
-        <h2>Login</h2>
-        <LoginForm
-          onLoginSuccess={this.handleLoginSuccess}
-        />
-      </section>
-    );
+    if (this.state.loading) {
+      return <Loading />
+    } else {
+      return (
+        <section className="login__container">
+          <h2>Login</h2>
+          <LoginForm
+            onLoginSuccess={this.handleLoginSuccess}
+            toggleLoading={this.toggleLoading}
+          />
+        </section>
+      );
+    }
   }
 }
 

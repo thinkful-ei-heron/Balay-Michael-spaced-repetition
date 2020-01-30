@@ -10,13 +10,16 @@ class RegistrationForm extends Component {
     onRegistrationSuccess: () => { }
   }
 
-  state = { error: null }
+  state = { 
+    error: null
+  }
 
   firstInput = React.createRef()
 
   handleSubmit = ev => {
     ev.preventDefault()
     const { name, username, password } = ev.target
+    this.props.toggleLoading()
     AuthApiService.postUser({
       name: name.value,
       username: username.value,
@@ -26,6 +29,7 @@ class RegistrationForm extends Component {
         name.value = ''
         username.value = ''
         password.value = ''
+        this.props.toggleLoading()
         this.props.onRegistrationSuccess()
       })
       .catch(res => {
@@ -87,7 +91,7 @@ class RegistrationForm extends Component {
         </footer>
       </form>
     )
-  }
+ }
 }
 
 export default RegistrationForm

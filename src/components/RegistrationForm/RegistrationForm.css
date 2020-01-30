@@ -5,6 +5,16 @@ p {
     font-size: 1.2em;
 }
 
+.loading {
+    font-size: 4em;
+    text-align: center;
+    margin-top: 15%;
+}
+
+.description {
+    width: 80%;
+}
+
 h2 {
     background-color: #F5F0A8;
     border-radius: 7px;

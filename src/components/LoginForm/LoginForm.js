@@ -21,6 +21,7 @@ class LoginForm extends Component {
     const { username, password } = ev.target
 
     this.setState({ error: null })
+    this.props.toggleLoading()
 
     AuthApiService.postLogin({
       username: username.value,
@@ -30,6 +31,7 @@ class LoginForm extends Component {
         username.value = ''
         password.value = ''
         this.context.processLogin(res.authToken)
+        this.props.toggleLoading()
         this.props.onLoginSuccess()
       })
       .catch(res => {
